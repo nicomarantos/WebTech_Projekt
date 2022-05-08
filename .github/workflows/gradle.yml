@@ -6,7 +6,7 @@ on:
   pull_request:
     branches : [ main ]
 
- jobs:
+jobs:
    build:
 
      runs-on: ubuntu-latest
@@ -21,4 +21,4 @@ on:
      - name: Grant execute permission for gradlew
        run: chmod +x gradlew
      - name: Run Backend Tests
-       run: ./gradle test
+       run: bash ./gradle test
