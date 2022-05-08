@@ -1,3 +1,5 @@
+[![CI](https://github.com/nicomarantos/WebTech_Projekt/actions/workflows/tests.yml/badge.svg)](https://github.com/nicomarantos/WebTech_Projekt/actions/workflows/tests.yml)
+
 # WebTech_Projekt
 Mit dieser Anwendung soll der Nutzer auf eine Datenbank an Pflanzen zurgeifen können, welche er beispielsweise besitzt.
 Der Datensatz dazu ist gegebenenfalls schon vorhanden.
