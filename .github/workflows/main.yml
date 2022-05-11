@@ -1,10 +1,9 @@
 name: Deploy
 
 on:
-  workflow_run: ["Java CI with Gradle"]
-    branches: [ main ]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -15,4 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "webtech-projekt-plantast"
-          heroku_email: "s0579813@htw-berlin.de"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
