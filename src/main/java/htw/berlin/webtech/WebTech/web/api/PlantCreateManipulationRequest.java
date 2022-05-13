@@ -1,30 +1,24 @@
-package htw.berlin.webtech.WebTech.persistence;
+package htw.berlin.webtech.WebTech.web.api;
 
-import javax.persistence.*;
-
-@Entity(name = "plants")
-public class PlantEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-    @Column(name = "common_name", nullable = false)
+public class PlantCreateManipulationRequest {
+    private long id;
     private String commonName;
-    @Column(name = "botanical_name", nullable = false)
     private String botanicalName;
-    @Column(name = "is_saved")
-    private Boolean saved;
+    private boolean saved;
 
-    public PlantEntity( String commonName, String botanicalName, Boolean saved) {
+    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, boolean saved) {
+        this.id = id;
         this.commonName = commonName;
         this.botanicalName = botanicalName;
         this.saved = saved;
     }
 
-    protected PlantEntity(){}
-
-    public Long getId() {
+    public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getCommonName() {
@@ -43,11 +37,11 @@ public class PlantEntity {
         this.botanicalName = botanicalName;
     }
 
-    public Boolean getSaved() {
+    public boolean isSaved() {
         return saved;
     }
 
-    public void setSaved(Boolean saved) {
+    public void setSaved(boolean saved) {
         this.saved = saved;
     }
 }
