@@ -28,7 +28,7 @@ public class PlantRestController {
 
     }
 
-    @GetMapping(path = "/epi/v1/plant/{id}")
+    @GetMapping(path = "/api/v1/plant/{id}")
     public ResponseEntity<Plant> fetchPlantId(@PathVariable Long id){
         var plant = plantService.findById(id);
         return plant != null?ResponseEntity.ok(plant): ResponseEntity.notFound().build();
@@ -37,7 +37,7 @@ public class PlantRestController {
     @PostMapping(path = "api/v1/plant")
     public ResponseEntity<Void> createPlant(@RequestBody PlantCreateManipulationRequest request) throws URISyntaxException {
  var plant = plantService.create(request);
- URI uri = new URI("api/v1/plants" + plant.getId());
+ URI uri = new URI("api/v1/plant" + plant.getId());
 return ResponseEntity.created(uri).build();
     }
 

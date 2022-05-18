@@ -15,7 +15,7 @@ public class PlantEntity {
     @Column(name = "is_saved")
     private Boolean saved;
 
-    public PlantEntity( String commonName, String botanicalName, Boolean saved) {
+    public PlantEntity(String commonName, String botanicalName, Boolean saved) {
         this.commonName = commonName;
         this.botanicalName = botanicalName;
         this.saved = saved;
