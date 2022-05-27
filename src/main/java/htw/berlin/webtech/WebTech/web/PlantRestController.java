@@ -22,7 +22,7 @@ public class PlantRestController {
 
 
 
-    @GetMapping(path = "/epi/v1/plant")
+    @GetMapping(path = "/api/v1/plant")
     public ResponseEntity<List<Plant>> fetchPlants() {
         return ResponseEntity.ok(plantService.findAll());
 
