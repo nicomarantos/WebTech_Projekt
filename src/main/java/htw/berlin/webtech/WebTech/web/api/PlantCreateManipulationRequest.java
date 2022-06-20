@@ -13,6 +13,8 @@ public class PlantCreateManipulationRequest {
         this.saved = saved;
     }
 
+    public PlantCreateManipulationRequest() {}
+
     public long getId() {
         return id;
     }
