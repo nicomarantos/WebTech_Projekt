@@ -31,7 +31,7 @@ public class PlantService {
     }
 
     public Plant create(PlantCreateManipulationRequest request) {
-       var plantEntity =new PlantEntity(request.getCommonName(), request.getBotanicalName(), request.isSaved());
+       var plantEntity =new PlantEntity(request.getCommonName(), request.getBotanicalName(),request.getDescription(), request.getWateringperiod(), request.isSaved());
         plantEntity = plantRepository.save(plantEntity);
         return transformEntity(plantEntity);
 
@@ -45,6 +45,8 @@ public class PlantService {
         var plantEntity = plantEntityOptional.get();
         plantEntity.setCommonName(request.getCommonName());
         plantEntity.setBotanicalName(request.getBotanicalName());
+        plantEntity.setDescription(request.getDescription());
+        plantEntity.setWateringperiod(request.getWateringperiod());
         plantEntity.setSaved(request.isSaved());
         plantEntity = plantRepository.save(plantEntity);
         return transformEntity(plantEntity);
@@ -63,6 +65,8 @@ public class PlantService {
                 plantEntity.getId(),
                 plantEntity.getCommonName(),
                 plantEntity.getBotanicalName(),
+                plantEntity.getDescription(),
+                plantEntity.getWateringperiod(),
                 plantEntity.getSaved()
         );
 
