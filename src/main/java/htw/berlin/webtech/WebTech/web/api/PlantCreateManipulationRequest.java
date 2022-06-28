@@ -6,14 +6,16 @@ public class PlantCreateManipulationRequest {
     private String botanicalName;
     private String description;
     private Integer wateringperiod;
+    private Integer wateringperiodCurrent;
     private boolean saved;
 
-    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, int wateringperiod, boolean saved) {
+    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, int wateringperiod, int wateringperiodCurrent, boolean saved) {
         this.id = id;
         this.commonName = commonName;
         this.botanicalName = botanicalName;
         this.description = description;
         this.wateringperiod = wateringperiod;
+        this.wateringperiodCurrent = wateringperiodCurrent;
         this.saved = saved;
     }
 
@@ -54,6 +56,13 @@ public class PlantCreateManipulationRequest {
     }
 
     public void setWateringperiod(Integer wateringperiod) {this.wateringperiod = wateringperiod;}
+
+    public Integer getWateringperiodCurrent() {
+        return wateringperiodCurrent;
+    }
+
+    public void setWateringperiodCurrent(Integer wateringperiodCurrent) {this.wateringperiodCurrent = wateringperiodCurrent;}
+
 
     public boolean isSaved() {
         return saved;

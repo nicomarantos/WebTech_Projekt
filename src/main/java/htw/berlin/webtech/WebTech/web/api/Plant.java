@@ -6,14 +6,17 @@ public class Plant {
     private String botanicalName;
     private String description;
     private Integer wateringperiod;
+
+    private Integer wateringperiodCurrent;
     private boolean saved;
 
-    public Plant(long id, String commonName, String botanicalName, String description, Integer wateringperiod, boolean saved) {
+    public Plant(long id, String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent, boolean saved) {
         this.id = id;
         this.commonName = commonName;
         this.botanicalName = botanicalName;
         this.description = description;
         this.wateringperiod = wateringperiod;
+        this.wateringperiodCurrent = wateringperiodCurrent;
         this.saved = saved;
     }
 
@@ -51,10 +54,12 @@ public class Plant {
 
     public void setWateringperiod(Integer wateringperiod) {this.wateringperiod = wateringperiod;}
 
-
-    public boolean isSaved() {
-        return saved;
+    public Integer getWateringperiodCurrent() {
+        return wateringperiodCurrent;
     }
+
+    public void setWateringperiodCurrent(Integer wateringperiodCurrent) {this.wateringperiodCurrent = wateringperiodCurrent;}
+    public boolean isSaved() {return saved;}
 
     public void setSaved(boolean saved) {
         this.saved = saved;
