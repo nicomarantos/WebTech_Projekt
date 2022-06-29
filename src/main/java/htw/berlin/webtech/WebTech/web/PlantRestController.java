@@ -6,6 +6,7 @@ import htw.berlin.webtech.WebTech.web.api.PlantCreateManipulationRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -35,16 +36,10 @@ public class PlantRestController {
 
     }
     @PostMapping(path = "api/v1/plant")
-    public ResponseEntity<Void> createPlant(@RequestBody PlantCreateManipulationRequest request) throws URISyntaxException {
-        var valid = validate(request);
-        if (valid) {
+    public ResponseEntity<Void> createPlant(@Valid @RequestBody PlantCreateManipulationRequest request) throws URISyntaxException {
             var plant = plantService.create(request);
             URI uri = new URI("api/v1/plant" + plant.getId());
             return ResponseEntity.created(uri).build();
-        }
-        else {
-            return ResponseEntity.badRequest().build();
-        }
 
     }
 
@@ -60,16 +55,5 @@ public class PlantRestController {
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
-    private boolean validate(PlantCreateManipulationRequest request) {
-        return request.getBotanicalName() != null
-                && !request.getBotanicalName().isBlank()
-                && request.getCommonName() != null
-                && !request.getCommonName().isBlank()
-                && request.getDescription() != null
-                && !request.getDescription().isBlank()
-                && request.getWateringperiod() != null
-                && request.getWateringperiodCurrent() != null;
 
-
-    }
 }

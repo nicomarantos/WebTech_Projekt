@@ -1,12 +1,20 @@
 package htw.berlin.webtech.WebTech.web.api;
 
+import javax.validation.constraints.*;
+
 public class PlantCreateManipulationRequest {
     private long id;
+    @NotBlank(message = "Please provide a Commaonname name.")
     private String commonName;
+    @NotBlank(message = "Please provide a Botancialnname name.")
     private String botanicalName;
+    @NotBlank(message = "Please provide a Descriptionn name.")
     private String description;
+    @PositiveOrZero(message = "The Number need to be positiv or 0.")
     private Integer wateringperiod;
+    @PositiveOrZero(message = "The Number need to be positiv or 0.")
     private Integer wateringperiodCurrent;
+    @NotNull(message = "Please provide between True or False")
     private boolean saved;
 
     public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, int wateringperiod, int wateringperiodCurrent, boolean saved) {
