@@ -36,9 +36,16 @@ public class PlantRestController {
     }
     @PostMapping(path = "api/v1/plant")
     public ResponseEntity<Void> createPlant(@RequestBody PlantCreateManipulationRequest request) throws URISyntaxException {
-        var plant = plantService.create(request);
- URI uri = new URI("api/v1/plant" + plant.getId());
-return ResponseEntity.created(uri).build();
+        var valid = validate(request);
+        if (valid) {
+            var plant = plantService.create(request);
+            URI uri = new URI("api/v1/plant" + plant.getId());
+            return ResponseEntity.created(uri).build();
+        }
+        else {
+            return ResponseEntity.badRequest().build();
+        }
+
     }
 
     @PutMapping(path = "api/v1/plant/{id}")
@@ -51,5 +58,18 @@ return ResponseEntity.created(uri).build();
     public ResponseEntity<Void> deletePlant(@PathVariable Long id) {
         boolean successful = plantService.deleteById(id);
         return successful? ResponseEntity.ok().build() : ResponseEntity.notFound().build();
+    }
+
+    private boolean validate(PlantCreateManipulationRequest request) {
+        return request.getBotanicalName() != null
+                && !request.getBotanicalName().isBlank()
+                && request.getCommonName() != null
+                && !request.getCommonName().isBlank()
+                && request.getDescription() != null
+                && !request.getDescription().isBlank()
+                && request.getWateringperiod() != null
+                && request.getWateringperiodCurrent() != null;
+
+
     }
 }
