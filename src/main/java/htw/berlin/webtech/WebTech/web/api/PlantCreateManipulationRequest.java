@@ -14,16 +14,20 @@ public class PlantCreateManipulationRequest {
     private Integer wateringperiod;
     @PositiveOrZero(message = "The Number need to be positiv or 0.")
     private Integer wateringperiodCurrent;
+
+    @PositiveOrZero(message = "The Number need to be positiv or 0.")
+    private Integer day;
     @NotNull(message = "Please provide between True or False")
     private boolean saved;
 
-    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, int wateringperiod, int wateringperiodCurrent, boolean saved) {
+    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent, Integer day, boolean saved) {
         this.id = id;
         this.commonName = commonName;
         this.botanicalName = botanicalName;
         this.description = description;
         this.wateringperiod = wateringperiod;
         this.wateringperiodCurrent = wateringperiodCurrent;
+        this.day = day;
         this.saved = saved;
     }
 
@@ -71,6 +75,11 @@ public class PlantCreateManipulationRequest {
 
     public void setWateringperiodCurrent(Integer wateringperiodCurrent) {this.wateringperiodCurrent = wateringperiodCurrent;}
 
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {this.day = day ;}
 
     public boolean isSaved() {
         return saved;

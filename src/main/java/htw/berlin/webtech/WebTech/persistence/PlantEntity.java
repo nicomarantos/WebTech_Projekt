@@ -18,15 +18,19 @@ public class PlantEntity {
     private Integer wateringperiod;
     @Column(name = "watering_period_current", nullable = true) // sollte noch auf false geändert werden
     private Integer wateringperiodCurrent;
+
+    @Column(name = "day", nullable = true) // sollte noch auf false geändert werden
+    private Integer day;
     @Column(name = "is_saved")
     private Boolean saved;
 
-    public PlantEntity(String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent, Boolean saved) {
+    public PlantEntity(String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent,Integer day, Boolean saved) {
         this.commonName = commonName;
         this.botanicalName = botanicalName;
         this.description = description;
         this.wateringperiod = wateringperiod;
         this.wateringperiodCurrent = wateringperiodCurrent;
+        this.day = day;
         this.saved = saved;
     }
 
@@ -66,6 +70,12 @@ public class PlantEntity {
     }
 
     public void setWateringperiodCurrent(Integer wateringperiodCurrent) {this.wateringperiodCurrent = wateringperiodCurrent;}
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {this.day = day ;}
 
     public Boolean getSaved() {
         return saved;

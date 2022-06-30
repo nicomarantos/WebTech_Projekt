@@ -8,9 +8,11 @@ public class Plant {
     private Integer wateringperiod;
 
     private Integer wateringperiodCurrent;
+
+    private Integer day;
     private boolean saved;
 
-    public Plant(long id, String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent, boolean saved) {
+    public Plant(long id, String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent,Integer day, boolean saved) {
         this.id = id;
         this.commonName = commonName;
         this.botanicalName = botanicalName;
@@ -59,6 +61,13 @@ public class Plant {
     }
 
     public void setWateringperiodCurrent(Integer wateringperiodCurrent) {this.wateringperiodCurrent = wateringperiodCurrent;}
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {this.day = day ;}
+
     public boolean isSaved() {return saved;}
 
     public void setSaved(boolean saved) {

@@ -6,6 +6,7 @@ import htw.berlin.webtech.WebTech.web.api.Plant;
 import htw.berlin.webtech.WebTech.web.api.PlantCreateManipulationRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,7 @@ public class PlantService {
     }
 
     public Plant create(PlantCreateManipulationRequest request) {
-       var plantEntity =new PlantEntity(request.getCommonName(), request.getBotanicalName(),request.getDescription(), request.getWateringperiod(), request.getWateringperiodCurrent(), request.isSaved());
+       var plantEntity =new PlantEntity(request.getCommonName(), request.getBotanicalName(),request.getDescription(), request.getWateringperiod(), request.getWateringperiodCurrent(), request.getDay(), request.isSaved());
         plantEntity = plantRepository.save(plantEntity);
         return transformEntity(plantEntity);
 
@@ -69,8 +70,13 @@ public class PlantService {
                 plantEntity.getDescription(),
                 plantEntity.getWateringperiod(),
                 plantEntity.getWateringperiodCurrent(),
+                plantEntity.getDay(),
                 plantEntity.getSaved()
         );
+
+    }
+    public static void calculateWateringperiodCurrent (){
+        Integer currentDay = LocalDate.now().getDayOfYear();
 
     }
 }
