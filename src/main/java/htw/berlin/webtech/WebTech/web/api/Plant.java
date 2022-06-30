@@ -19,6 +19,7 @@ public class Plant {
         this.description = description;
         this.wateringperiod = wateringperiod;
         this.wateringperiodCurrent = wateringperiodCurrent;
+        this.day = day;
         this.saved = saved;
     }
 

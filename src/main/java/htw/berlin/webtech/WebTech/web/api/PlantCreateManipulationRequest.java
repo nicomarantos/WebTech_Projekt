@@ -1,5 +1,6 @@
 package htw.berlin.webtech.WebTech.web.api;
 
+
 import javax.validation.constraints.*;
 
 public class PlantCreateManipulationRequest {
@@ -15,12 +16,12 @@ public class PlantCreateManipulationRequest {
     @PositiveOrZero(message = "The Number need to be positiv or 0.")
     private Integer wateringperiodCurrent;
 
-    @PositiveOrZero(message = "The Number need to be positiv or 0.")
+    //@NotNull(message = "The Number need to be positiv or 0.")
     private Integer day;
     @NotNull(message = "Please provide between True or False")
     private boolean saved;
 
-    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, Integer wateringperiod, Integer wateringperiodCurrent, Integer day, boolean saved) {
+    public PlantCreateManipulationRequest(long id, String commonName, String botanicalName, String description, int wateringperiod, int wateringperiodCurrent, int day, boolean saved) {
         this.id = id;
         this.commonName = commonName;
         this.botanicalName = botanicalName;

@@ -49,6 +49,7 @@ public class PlantService {
         plantEntity.setDescription(request.getDescription());
         plantEntity.setWateringperiod(request.getWateringperiod());
         plantEntity.setWateringperiodCurrent(request.getWateringperiodCurrent());
+        plantEntity.setDay(request.getDay());
         plantEntity.setSaved(request.isSaved());
         plantEntity = plantRepository.save(plantEntity);
         return transformEntity(plantEntity);
@@ -75,8 +76,8 @@ public class PlantService {
         );
 
     }
-    public static void calculateWateringperiodCurrent (){
+  /*  public Integer void calculateWateringperiodCurrent (Integer day){
         Integer currentDay = LocalDate.now().getDayOfYear();
-
-    }
+        return day-currentDay;
+    }*/
 }
