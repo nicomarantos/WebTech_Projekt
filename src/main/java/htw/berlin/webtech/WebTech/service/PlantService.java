@@ -59,11 +59,12 @@ public class PlantService {
         if (!plantRepository.existsById(id)) {
             return false;
         }
+
         plantRepository.deleteById(id);
         return true;
     }
 
-    private Plant transformEntity(PlantEntity plantEntity) {
+    public Plant transformEntity(PlantEntity plantEntity) {
         return new Plant(
                 plantEntity.getId(),
                 plantEntity.getCommonName(),
