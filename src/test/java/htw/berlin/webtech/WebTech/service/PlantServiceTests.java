@@ -90,7 +90,6 @@ class PlantServiceTests implements WithAssertions {
         boolean result = forTesting.deleteById(givenID);
 
         //then
-        //verifyNoMoreInteractions(testRepo);
         assertThat(result).isFalse();
     }
 
