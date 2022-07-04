@@ -37,7 +37,7 @@ class PlantRestControllerTests{
     private PlantService testPlantService;
 
     @Test
-    @DisplayName("")
+    @DisplayName("should_return_found_plant_from_plant_service")
     void should_return_found_plant_from_plant_service() throws Exception {
         //given
         var plants = List.of(
@@ -68,7 +68,7 @@ class PlantRestControllerTests{
                 .andExpect(jsonPath("$[1].saved").value(false));
     }
     @Test
-    @DisplayName("")
+    @DisplayName("should_return_404_if_plant_is_not_found")
     void should_return_404_if_plant_is_not_found() throws Exception {
         //given
         doReturn(null).when(testPlantService).findById(anyLong());
@@ -81,7 +81,7 @@ class PlantRestControllerTests{
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("should_return_201_http_status_and_location_header_when_creating_a_plant")
     void should_return_201_http_status_and_location_header_when_creating_a_plant() throws Exception {
         //given
         String plantToCreateAsJson = "{\"commonName\": \"Monstera\", \"botanicalName\": \"Monstera Deliousa\", \"description\": \"Its a plant\", \"wateringperiod\": \"10\", \"wateringperiodCurrent\": \"10\", \"day\": \"100\", \"saved\": true}";
@@ -101,8 +101,8 @@ class PlantRestControllerTests{
     }
 
     @Test
-    @DisplayName("")
-    void should_validate_create_personn_request() throws Exception {
+    @DisplayName("should_validate_create_plant_request")
+    void should_validate_create_plant_request() throws Exception {
         //given
         String plantToCreateAsJson = "{\"commonName\": \"\", \"botanicalName\": \"\", \"description\": \"Its a plant\", \"wateringperiod\": \"test\", \"wateringperiodCurrent\": \"10\", \"day\": \"100\", \"saved\": true}";
 

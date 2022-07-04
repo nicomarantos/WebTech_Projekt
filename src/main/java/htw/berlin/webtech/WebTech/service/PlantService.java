@@ -77,8 +77,5 @@ public class PlantService {
         );
 
     }
-  /*  public Integer void calculateWateringperiodCurrent (Integer day){
-        Integer currentDay = LocalDate.now().getDayOfYear();
-        return day-currentDay;
-    }*/
+
 }
